@@ -10,8 +10,6 @@ module.exports = function(req, res, next) {
         });
 
     } else {
-
-
         try {
             const decoded = jwt.verify(token, randomString);
             req.user = decoded.user;

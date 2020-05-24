@@ -22,12 +22,14 @@
                             <%= user.name %>
                         </h1>
 
-                        <p>
+                        <h3>General information</h3>
+
+                        <p> Email Id:-
                             <%= user.email %>
                         </p>
 
-                        <p>
-                            <%= user.dateOfBirth %>
+                        <p>Date of birth:-
+                            <%= moment(user.dateOfBirth).format('Do MMMM, YYYY'); %>
                         </p>
 
                         <% } %>

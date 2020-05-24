@@ -38,7 +38,7 @@
                                 <%= user.email %>
                             </td>
                             <td>
-                                <%= user.dateOfBirth %>
+                                <%= moment(user.dateOfBirth).format('Do MMMM, YYYY'); %>
                             </td>
                         </tr>
 
