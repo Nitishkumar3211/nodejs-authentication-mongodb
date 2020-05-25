@@ -30,7 +30,10 @@ npm install
 ```
 npm start  or  nodemon start
  
+
 ```
+* Open this in your browser `http://localhost:2000/`
+
 
 ## Author
 
