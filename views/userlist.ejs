@@ -10,7 +10,9 @@
     <link href="/stylesheets/table.css" rel="stylesheet" type="text/css">
 
     <!-- BOOTSTRAP CDN -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <!-- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"> -->
+
+
 </head>
 
 <body>
@@ -22,8 +24,9 @@
                     <tr>
                         <th>Name</th>
                         <th>User Name</th>
-                        <th>EmailId</th>
-                        <th>DOB</th>
+                        <th>Email Id</th>
+                        <th>Dob</th>
+                        <th>Action</th>
                     </tr>
                     <% userlist.forEach( function ( user ){ %>
 
@@ -39,6 +42,13 @@
                             </td>
                             <td>
                                 <%= moment(user.dateOfBirth).format('Do MMMM, YYYY'); %>
+                            </td>
+                            <td>
+                                <div style="font-size: 2.6rem;">
+                                    <a href="/delete/<%= user._id %>"><i class="fa fa-trash" aria-hidden="true"></i></a>
+                                    <a href="/editprofile/<%= user._id %>"><i class="fa fa-pencil-square" aria-hidden="true"></i></a>
+                                </div>
+
                             </td>
                         </tr>
 

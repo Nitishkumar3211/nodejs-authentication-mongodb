@@ -226,3 +226,66 @@ exports.userList = (req, res) => {
         res.redirect('/');
     })
 }
+
+
+exports.deleteUser = (req, res) => {
+
+    User.findByIdAndRemove({
+        _id: req.params.id
+    }).then(removeData => {
+        console.log("Successfully removed")
+        res.redirect('/userlist');
+
+    }, error => {
+        console.log("error" + error);
+        res.redirect('/userlist');
+    })
+}
+
+
+exports.editprofile = (req, res) => {
+
+    User.findById({
+        _id: req.params.id
+    }).then(userData => {
+
+        User.findById({
+            _id: req.session.userID
+        }).then(user => {
+            console.log("Successfully removed")
+            res.render('updateprofile', {
+                old_data: userData,
+                message: "",
+                moment: moment,
+                user: user
+            });
+
+        }, error => {
+            console.log("error" + error);
+            res.redirect('/userlist');
+        })
+
+    }, error => {
+        console.log("error" + error);
+        res.redirect('/userlist');
+    })
+
+
+
+}
+
+exports.updateProfile = (req, res) => {
+
+
+
+    User.findByIdAndUpdate({
+        _id: req.params.id
+    }, req.body).then(updateData => {
+        console.log("Updated successfully")
+        res.redirect('/');
+
+    }, error => {
+        console.log("error" + error);
+        res.redirect('/');
+    })
+}

@@ -37,7 +37,7 @@ router.post('/', ifLoggedin, [
     .not()
     .isEmpty(),
     check("password", "Please enter a valid password").isLength({
-        min: 6
+        min: 5
     })
 ], user_controller.login);
 
@@ -65,6 +65,13 @@ router.get('/logout', user_controller.logout);
 
 //USER LIST
 router.get('/userlist', auth, user_controller.userList)
+
+
+router.get('/delete/:id', auth, user_controller.deleteUser);
+
+router.get('/editprofile/:id', auth, user_controller.editprofile);
+
+router.post('/editprofile/:id', auth, user_controller.updateProfile)
 
 
 module.exports = router;
